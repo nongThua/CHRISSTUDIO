@@ -1,0 +1,188 @@
+:root {
+    /* เปลี่ยนจากโทนสีฟ้า เป็นโทนชมพูและเทาเข้ม */
+    --accent-pink: #FF85B3;    /* ชมพูหลัก */
+    --soft-pink: #FFF0F6;      /* ชมพูอ่อนสำหรับส่วนประกอบ */
+    --bg-dark: #121212;        /* พื้นหลังดำเข้ม */
+    --bg-card: #1E1E1E;        /* พื้นหลังการ์ด (เทาเข้ม) */
+    --text-main: #FFFFFF;      /* ตัวหนังสือหลักสีขาว */
+    --text-muted: #A0A0A0;     /* ตัวหนังสือรองสีเทา */
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: var(--bg-dark); /* เปลี่ยนพื้นหลังเป็นสีเข้ม */
+    scroll-behavior: smooth;
+    color: var(--text-main);          /* ตัวหนังสือสีขาวเพื่อให้สว่างบนพื้นหลังดำ */
+}
+
+.serif-title {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em;
+}
+
+/* Navbar แบบ Dark Mode */
+.navbar-glass {
+    background: rgba(18, 18, 18, 0.85); /* ดำโปร่งแสง */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 133, 179, 0.1);
+}
+
+.nav-link { 
+    transition: 0.3s; 
+    color: var(--text-muted); 
+}
+
+.nav-link:hover { 
+    color: var(--accent-pink); 
+}
+
+.active-link { 
+    color: var(--accent-pink); 
+    font-weight: 700; 
+    border-bottom: 2px solid var(--accent-pink); 
+    padding-bottom: 4px; 
+}
+
+/* Components */
+.status-badge {
+    background: var(--bg-card);
+    color: var(--accent-pink);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 133, 179, 0.3);
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-dot {
+    width: 8px; height: 8px;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 10px rgba(255, 133, 179, 0.6);
+}
+
+.btn-primary {
+    background: var(--accent-pink); /* เปลี่ยนปุ่มหลักเป็นสีชมพู */
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: var(--accent-pink);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 133, 179, 0.3);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-main);
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-secondary:hover { 
+    border-color: var(--accent-pink); 
+    color: var(--accent-pink); 
+}
+
+/* Category Cards */
+.location-card {
+    background: var(--bg-card); /* การ์ดสีเทาเข้ม */
+    border-radius: 2.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block;
+}
+
+.location-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-pink);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.location-img-wrapper {
+    height: 240px;
+    overflow: hidden;
+    background: #2a2a2a;
+}
+
+.location-img-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+    opacity: 0.9; /* ปรับรูปให้มืดลงนิดหน่อยเพื่อให้เข้ากับโทนเว็บ */
+}
+
+.location-card:hover img { 
+    transform: scale(1.1); 
+    opacity: 1;
+}
+
+.footer { 
+    padding: 4rem 0; 
+    text-align: center; 
+    color: var(--text-muted); 
+    font-size: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Emoji Nav */
+.emoji-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.emoji-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.emoji-link span:first-child {
+    font-size: 1.3rem;
+}
+
+.emoji-link .emoji-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-pink); /* เปลี่ยนสี Label เป็นชมพู */
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.emoji-link:hover {
+    transform: scale(1.15);
+}
+
+/* เพิ่มเติม: ส่วนลดราคาหรือข้อความเน้น */
+.text-\[\#0EA5E9\] {
+    color: var(--accent-pink) !important;
+}
+
+/* สไตล์ Scrollbar (แถมให้เพื่อความคุมโทน) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-pink);
+    border-radius: 10px;
+}
