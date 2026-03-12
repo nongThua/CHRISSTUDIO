@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Arena | CHRISLEE.STUDIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .video-container-wrapper { position: relative; width: 100%; margin-bottom: 4rem; }
+        .video-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+        }
+        .video-slider::-webkit-scrollbar { display: none; }
+        
+        /* แก้ไข: เอา aspect-ratio ออก และใช้ h-auto เพื่อให้กรอบปรับตามความสูงวิดีโอจริง */
+        .video-item { 
+            flex: 0 0 100%; 
+            scroll-snap-align: start; 
+            height: auto; 
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 133, 179, 0.9);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 40;
+            border: none;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover { background: #FF85B3; scale: 1.1; }
+        .arrow-left { left: -25px; }
+        .arrow-right { right: -25px; }
+
+        video::-webkit-media-controls-volume-slider,
+        video::-webkit-media-controls-mute-button {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .arrow-left { left: 10px; }
+            .arrow-right { right: 10px; }
+        }
+    </style>
+</head>
+<body class="bg-[#121212]"> 
+    <nav class="navbar-glass sticky top-0 z-50 text-white">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <h1 class="serif-title text-3xl font-bold italic"><a href="../index.html">CHRISLEE.STUDIO</a></h1>
+            <div class="emoji-nav">
+                <a href="../index.html" class="emoji-link"><span>🏠</span><span class="emoji-label">Home</span></a>
+                <a href="../categories.html" class="emoji-link"><span>📍</span><span class="emoji-label">Jobs</span></a>
+                <a href="../contact.html" class="emoji-link"><span>📩</span><span class="emoji-label">Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        <a href="../categories.html" class="text-slate-500 hover:text-[#FF85B3] transition-colors mb-8 inline-block">← Back to Locations</a>
+        
+        <header class="mb-12">
+            <h2 class="serif-title text-6xl mb-2 italic text-white">Impact Arena</h2>
+        </header>
+
+        <div class="video-container-wrapper px-4 md:px-0">
+            <button class="nav-arrow arrow-left" onclick="slideVideo('cubicSlider', 'left')">❮</button>
+            <button class="nav-arrow arrow-right" onclick="slideVideo('cubicSlider', 'right')">❯</button>
+            <div class="video-slider" id="cubicSlider">
+                <div class="video-item relative rounded-[3rem] overflow-hidden border-4 border-white/5 shadow-2xl bg-black">
+                    <div class="absolute top-6 left-8 z-20 bg-[#FF85B3] text-white px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg">impact Cubic Screen</div>
+                    <video loop muted playsinline autoplay controls controlsList="nodownload" class="video-autoplay w-full h-auto block">
+                        <source src="impact-cubic.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-container-wrapper px-4 md:px-0">
+            <button class="nav-arrow arrow-left" onclick="slideVideo('forumSlider', 'left')">❮</button>
+            <button class="nav-arrow arrow-right" onclick="slideVideo('forumSlider', 'right')">❯</button>
+            
+            <div class="video-slider" id="forumSlider">
+                <div class="video-item relative rounded-[3rem] overflow-hidden border-4 border-white/5 shadow-2xl bg-black">
+                    <div class="absolute top-6 left-8 z-20 bg-slate-600 text-white px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg">Impact Forum Screen</div>
+                    <video loop muted playsinline controls controlsList="nodownload" class="video-autoplay w-full h-auto block">
+                        <source src="impact-work1.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="video-item relative rounded-[3rem] overflow-hidden border-4 border-white/5 shadow-2xl bg-black">
+                    <div class="absolute top-6 left-8 z-20 bg-slate-600 text-white px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg">Impact Forum Screen</div>
+                    <video loop muted playsinline controls controlsList="nodownload" class="video-autoplay w-full h-auto block">
+                        <source src="impact-work2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20">
+            <h3 class="serif-title text-3xl mb-8 italic text-white border-l-4 border-[#FF85B3] pl-6">Service Rates</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-[#FF85B3] font-black uppercase mb-1">LED Resize</p>
+                    <p class="text-4xl font-bold text-white">450฿</p>
+                </div>
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-slate-400 font-black uppercase mb-1">Lollipop</p>
+                    <p class="text-4xl font-bold text-white">400฿</p>
+                </div>
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-slate-400 font-black uppercase mb-1">Bus Stop</p>
+                    <p class="text-4xl font-bold text-white">400฿</p>
+                </div>
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-slate-400 font-black uppercase mb-1">Fence</p>
+                    <p class="text-4xl font-bold text-white">400฿</p>
+                </div>
+            </div>
+            <p class="text-center text-slate-500 mt-12 text-sm italic">* Other media or special requests, please contact directly.</p>
+        </div>
+    </main>
+
+    <script>
+        function slideVideo(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = slider.offsetWidth; 
+            if (direction === 'left') {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(e => {});
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.6 });
+
+        document.querySelectorAll('.video-autoplay').forEach((vdo) => {
+            videoObserver.observe(vdo);
+        });
+    </script>
+</body>
+</html>

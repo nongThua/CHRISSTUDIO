@@ -9,20 +9,25 @@
 }
 
 body {
-    font-family: 'Prompt', sans-serif;
-    background-color: var(--bg-dark); /* เปลี่ยนพื้นหลังเป็นสีเข้ม */
+    /* แก้ไข: เปลี่ยนลำดับฟอนต์หลักเป็น Bebas Neue */
+    font-family: 'Bebas Neue', 'Prompt', sans-serif;
+    background-color: var(--bg-dark); 
     scroll-behavior: smooth;
-    color: var(--text-main);          /* ตัวหนังสือสีขาวเพื่อให้สว่างบนพื้นหลังดำ */
+    color: var(--text-main); 
+    /* แถม: เพิ่ม letter-spacing เล็กน้อยเพื่อให้ภาษาอังกฤษอ่านง่ายขึ้น */
+    letter-spacing: 0.5px;
 }
 
 .serif-title {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: -0.02em;
+    /* แก้ไข: เปลี่ยนจาก Playfair เป็น Bebas Neue เพื่อความคุมโทน */
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 /* Navbar แบบ Dark Mode */
 .navbar-glass {
-    background: rgba(18, 18, 18, 0.85); /* ดำโปร่งแสง */
+    background: rgba(18, 18, 18, 0.85); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 133, 179, 0.1);
@@ -55,6 +60,8 @@ body {
     border: 1px solid rgba(255, 133, 179, 0.3);
     display: inline-flex;
     align-items: center;
+    /* แก้ไข: บังคับใช้ฟอนต์ตัวหนาของ Bebas */
+    letter-spacing: 1px;
 }
 
 .status-dot {
@@ -66,13 +73,16 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent-pink); /* เปลี่ยนปุ่มหลักเป็นสีชมพู */
+    background: var(--accent-pink); 
     color: #fff;
     padding: 12px 28px;
     border-radius: 999px;
     transition: all 0.3s ease;
     display: inline-block;
     font-weight: 600;
+    /* เพิ่ม: สไตล์ฟอนต์ปุ่ม */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-primary:hover {
@@ -90,6 +100,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s;
     display: inline-block;
+    text-transform: uppercase;
 }
 
 .btn-secondary:hover { 
@@ -99,7 +110,7 @@ body {
 
 /* Category Cards */
 .location-card {
-    background: var(--bg-card); /* การ์ดสีเทาเข้ม */
+    background: var(--bg-card); 
     border-radius: 2.5rem;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -123,7 +134,7 @@ body {
     width: 100%; height: 100%;
     object-fit: cover;
     transition: 0.6s;
-    opacity: 0.9; /* ปรับรูปให้มืดลงนิดหน่อยเพื่อให้เข้ากับโทนเว็บ */
+    opacity: 0.9; 
 }
 
 .location-card:hover img { 
@@ -137,6 +148,8 @@ body {
     color: var(--text-muted); 
     font-size: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* เพิ่ม: ให้ฟอนต์ Footer ดูสะอาดตา */
+    letter-spacing: 1px;
 }
 
 /* Emoji Nav */
@@ -161,21 +174,22 @@ body {
 .emoji-link .emoji-label {
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--accent-pink); /* เปลี่ยนสี Label เป็นชมพู */
+    color: var(--accent-pink); 
     text-transform: uppercase;
     margin-top: 2px;
+    /* ฟอนต์ Label ใต้ Emoji จะเป็น Bebas Neue โดยอัตโนมัติ */
 }
 
 .emoji-link:hover {
     transform: scale(1.15);
 }
 
-/* เพิ่มเติม: ส่วนลดราคาหรือข้อความเน้น */
+/* ส่วนลดราคาหรือข้อความเน้น */
 .text-\[\#0EA5E9\] {
     color: var(--accent-pink) !important;
 }
 
-/* สไตล์ Scrollbar (แถมให้เพื่อความคุมโทน) */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }

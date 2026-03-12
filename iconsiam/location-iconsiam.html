@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICONSIAM | CHRISLEE.STUDIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Bebas Neue', 'Prompt', sans-serif; }
+        
+        .work-card {
+            background: #1A1A1A;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* สำหรับทำ Slider */
+        .slider-container { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; flex-shrink: 0; }
+        
+        video { width: 100%; height: 100%; object-fit: cover; }
+        .std-content { object-fit: contain; width: 100%; height: 100%; background: #000; }
+
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; padding: 1rem;
+            cursor: pointer; z-index: 10; border-radius: 50%; line-height: 0;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: #FF85B3; }
+        .prev { left: 1rem; }
+        .next { right: 1rem; }
+    </style>
+</head>
+<body class="bg-[#121212] text-white"> 
+    <nav class="navbar-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <h1 class="serif-title text-3xl font-bold italic"><a href="../index.html">CHRISLEE.STUDIO</a></h1>
+            <div class="emoji-nav">
+                <a href="../index.html" class="emoji-link"><span>🏠</span><span class="emoji-label">Home</span></a>
+                <a href="../categories.html" class="emoji-link"><span>📍</span><span class="emoji-label">Jobs</span></a>
+                <a href="../contact.html" class="emoji-link"><span>📩</span><span class="emoji-label">Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <a href="../categories.html" class="text-slate-500 hover:text-[#FF85B3] transition-colors mb-8 inline-block">← Back to Locations</a>
+        
+        <header class="mb-20"> <h2 class="serif-title text-6xl mb-2 italic">ICONSIAM</h2>
+            <p class="text-[#FF85B3] uppercase tracking-[0.3em] text-sm font-bold">Luxury Display Selection</p>
+        </header>
+
+        <div class="grid grid-cols-1 gap-24"> <div class="space-y-6">
+                <div class="flex items-center space-x-3">
+                    <span class="bg-[#FF85B3] text-black px-3 py-0.5 rounded-full text-[10px] font-black uppercase">Stretch Screen</span>
+                    <h4 class="text-xs uppercase tracking-widest text-slate-400">Panoramic View (2 Clips)</h4>
+                </div>
+                
+                <div class="work-card">
+                    <button class="nav-btn prev" onclick="moveSlide('stretchSlider', -1)">❮</button>
+                    <button class="nav-btn next" onclick="moveSlide('stretchSlider', 1)">❯</button>
+                    <div id="stretchSlider" class="slider-container" data-index="0">
+                        <div class="slide aspect-[32/9]"><video loop muted playsinline controls><source src="icon1.mp4" type="video/mp4"></video></div>
+                        <div class="slide aspect-[32/9]"><video loop muted playsinline controls><source src="icon2.mp4" type="video/mp4"></video></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3">
+                    <span class="bg-white text-black px-3 py-0.5 rounded-full text-[10px] font-black uppercase">Standard Display</span>
+                    <h4 class="text-xs uppercase tracking-widest text-slate-400">Main Lobby Display (2 Videos + 1 Photo)</h4>
+                </div>
+                
+                <div class="work-card max-w-4xl mx-auto">
+                    <button class="nav-btn prev" onclick="moveSlide('stdSlider', -1)">❮</button>
+                    <button class="nav-btn next" onclick="moveSlide('stdSlider', 1)">❯</button>
+                    <div id="stdSlider" class="slider-container" data-index="0">
+                        <div class="slide aspect-video bg-black flex items-center justify-center">
+                            <video loop muted playsinline controls class="std-content"><source src="ledIcon1.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="slide aspect-video bg-black flex items-center justify-center">
+                            <video loop muted playsinline controls class="std-content"><source src="ledicon2.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="slide aspect-video bg-black flex items-center justify-center">
+                            <img src="pngicon.jpg" alt="Jaehyun ICONSIAM" class="std-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-32 pt-12 border-t border-white/5">
+            <h3 class="serif-title text-3xl mb-8 italic border-l-4 border-[#FF85B3] pl-6">Service Rates</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-[#FF85B3] font-black uppercase mb-1">LED VIDEO</p>
+                    <p class="text-4xl font-bold text-white">450฿</p>
+                    <p class="text-[10px] text-slate-500 mt-2 italic">Standard / Stretch</p>
+                </div>
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-slate-400 font-black uppercase mb-1">PHOTO + VIDEO</p>
+                    <p class="text-4xl font-bold text-white">600฿</p>
+                </div>
+                <div class="bg-[#1E1E1E] p-8 rounded-[2.5rem] border-4 border-white/5 text-center transition-all hover:border-[#FF85B3]/30">
+                    <p class="text-[10px] text-slate-400 font-black uppercase mb-1">RESIZE</p>
+                    <p class="text-4xl font-bold text-white">150฿</p>
+                    <p class="text-[10px] text-slate-500 mt-2 italic">PER SCREEN</p>
+                </div>
+                <div class="bg-[#FF85B3] p-8 rounded-[2.5rem] text-center text-white flex flex-col justify-center">
+                    <p class="text-xs font-bold uppercase">Ready to Book?</p>
+                    <a href="../contact.html" class="text-xl font-black underline mt-1">DM NOW</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 text-center opacity-40 text-xs tracking-widest uppercase font-bold">
+        © 2026 CHRISLEE.STUDIO
+    </footer>
+
+    <script>
+        function moveSlide(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.getElementsByClassName('slide');
+            let currentIndex = parseInt(slider.getAttribute('data-index'));
+            
+            currentIndex += direction;
+
+            if (currentIndex >= slides.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            slider.setAttribute('data-index', currentIndex);
+        }
+    </script>
+</body>
+</html>
