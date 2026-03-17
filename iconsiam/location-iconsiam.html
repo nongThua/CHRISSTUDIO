@@ -16,7 +16,7 @@
             margin-bottom: 2rem;
         }
         
-        /* แก้ปัญหาขอบดำ: ให้ Slider ปรับความสูงตามตัวที่แสดงอยู่ */
+        /* 1. จอวิดีโอปรับให้เหลี่ยมขึ้น (1rem) */
         .video-slider {
             display: flex;
             overflow-x: auto;
@@ -25,8 +25,9 @@
             -ms-overflow-style: none; 
             scrollbar-width: none;
             width: 100%;
-            border-radius: 2.5rem;
-            background: transparent; /* เปลี่ยนเป็นใสเพื่อไม่ให้เห็นพื้นหลังดำ */
+            border-radius: 1rem; 
+            background: transparent;
+            gap: 1rem; /* เพิ่ม gap เล็กน้อยเพื่อให้ดูมีมิติ */
         }
         .video-slider::-webkit-scrollbar { display: none; }
         
@@ -36,10 +37,11 @@
             scroll-snap-align: start;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* ให้ชิดบนเพื่อลดช่องว่าง */
+            align-items: flex-start;
+            border-radius: 1rem;
+            overflow: hidden;
         }
 
-        /* ลูกศรแบบ MBK - ปรับให้อยู่ด้านนอกวิดีโอเล็กน้อยเพื่อไม่ให้บังปุ่ม Play */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -61,16 +63,15 @@
         }
         .nav-arrow:hover { background: #FF85B3; scale: 1.1; }
         
-        /* ขยับลูกศรออกไปอีกนิดตามภาพ image_10c63d.png */
         .arrow-left { left: -22px; }
         .arrow-right { right: -22px; }
 
-        /* หัวใจสำคัญ: บังคับให้วิดีโอแสดงผลตามขนาดจริงโดยไม่มี Container มาบีบ */
+        /* 2. วิดีโอเหลี่ยมขึ้น (1rem) */
         video, img { 
             width: 100%;
             height: auto; 
             display: block;
-            border-radius: 2.5rem;
+            border-radius: 1rem; 
             object-fit: contain;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -78,7 +79,7 @@
         @media (max-width: 768px) {
             .arrow-left { left: 5px; }
             .arrow-right { right: 5px; }
-            video, img, .video-slider { border-radius: 1.5rem; }
+            video, img, .video-slider, .video-item { border-radius: 0.75rem; }
             .nav-arrow { width: 35px; height: 35px; font-size: 16px; }
         }
     </style>
@@ -104,52 +105,34 @@
         </header>
 
         <div class="flex flex-col gap-24">
-            
             <div class="space-y-4">
                 <div class="flex items-center space-x-3">
-                    <span class="bg-[#FF85B3] text-black px-3 py-0.5 rounded-full text-[10px] font-black uppercase">Stretch Screen</span>
-                    <h4 class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Panoramic View (2 Clips)</h4>
+                    <span class="bg-[#FF85B3] text-black px-3 py-0.5 rounded-full text-[15px] font-black uppercase">Stretch Screen</span>
                 </div>
-                
                 <div class="video-container-wrapper">
                     <button class="nav-arrow arrow-left" onclick="slideMedia('stretchSlider', 'left')">❮</button>
                     <button class="nav-arrow arrow-right" onclick="slideMedia('stretchSlider', 'right')">❯</button>
-
                     <div class="video-slider" id="stretchSlider">
-                        <div class="video-item">
-                            <video loop muted playsinline controls class="video-autoplay"><source src="icon1.mp4" type="video/mp4"></video>
-                        </div>
-                        <div class="video-item">
-                            <video loop muted playsinline controls class="video-autoplay"><source src="icon2.mp4" type="video/mp4"></video>
-                        </div>
+                        <div class="video-item"><video loop muted playsinline controls class="video-autoplay"><source src="icon1.mp4" type="video/mp4"></video></div>
+                        <div class="video-item"><video loop muted playsinline controls class="video-autoplay"><source src="icon2.mp4" type="video/mp4"></video></div>
                     </div>
                 </div>
             </div>
 
             <div class="space-y-4">
                 <div class="flex items-center space-x-3">
-                    <span class="bg-white text-black px-3 py-0.5 rounded-full text-[10px] font-black uppercase">Standard Display</span>
-                    <h4 class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Main Lobby (2 Videos + 1 Photo)</h4>
+                    <span class="bg-white text-black px-3 py-0.5 rounded-full text-[15px] font-black uppercase">Standard Display</span>
                 </div>
-                
                 <div class="video-container-wrapper">
                     <button class="nav-arrow arrow-left" onclick="slideMedia('stdSlider', 'left')">❮</button>
                     <button class="nav-arrow arrow-right" onclick="slideMedia('stdSlider', 'right')">❯</button>
-
                     <div class="video-slider" id="stdSlider">
-                        <div class="video-item">
-                            <video loop muted playsinline controls class="video-autoplay"><source src="ledIcon1.mp4" type="video/mp4"></video>
-                        </div>
-                        <div class="video-item">
-                            <video loop muted playsinline controls class="video-autoplay"><source src="ledicon2.mp4" type="video/mp4"></video>
-                        </div>
-                        <div class="video-item">
-                            <img src="pngicon.jpg" alt="Showcase">
-                        </div>
+                        <div class="video-item"><video loop muted playsinline controls class="video-autoplay"><source src="ledIcon1.mp4" type="video/mp4"></video></div>
+                        <div class="video-item"><video loop muted playsinline controls class="video-autoplay"><source src="ledicon2.mp4" type="video/mp4"></video></div>
+                        <div class="video-item"><img src="pngicon.jpg" alt="Showcase"></div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="mt-32 pt-12 border-t border-white/5">
@@ -182,17 +165,23 @@
     </footer>
 
     <script>
+        // แก้ไข Logic การเลื่อนให้แม่นยำ (เหมือนหน้า MBK และ Impact)
         function slideMedia(sliderId, direction) {
             const slider = document.getElementById(sliderId);
-            const scrollAmount = slider.clientWidth; 
+            const items = slider.querySelectorAll('.video-item');
+            if (items.length === 0) return;
+
+            const itemWidth = items[0].offsetWidth;
+            const gap = parseInt(window.getComputedStyle(slider).gap) || 0;
+            const scrollStep = itemWidth + gap;
+
             if (direction === 'left') {
-                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                slider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
             } else {
-                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
             }
         }
 
-        // เพิ่ม Auto Play เมื่อเลื่อนผ่านเหมือนหน้า MBK
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
